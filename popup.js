@@ -88,13 +88,24 @@ function calculateSyllableCount(words) {
     return syllableCount;
 }
 
+function convertScoreToGrade(score) {
+    if (score <= 30) { return 'College Graduate | Very Difficult' }
+    if (score > 30 && score <= 50) { return 'College | Difficult' }
+    if (score > 50 && score <= 60) { return '10th-12th Grade | Fairly Difficult' }
+    if (score > 60 && score <= 70) { return '8th-9th Grade | Plain English' }
+    if (score > 70 && score <= 80) { return '7th Grade | Fairly Easy' }
+    if (score > 80 && score <= 90) { return '6th Grade | Easy' }
+    if (score > 90) { return '5th Grade | Very Easy' }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     getSelectedText(function(selectedText) {
         var readability = calculateReadability(selectedText);
 
-        document.getElementById("output").innerHTML = "<div>Your score is " + readability.score + "</div>" +
-            "<div>Your words is " + readability.words + "</div>" +
-            "<div>Your sentences is " + readability.sentences + "</div>" +
-            "<div>Syllables per word is " + readability.syllables / readability.words + "</div>";
+        document.getElementById("output").innerHTML = "<div>Your score is " + readability.score.toFixed(2) + "</div>" +
+            "<div>Reading Level: " + convertScoreToGrade(readability.score) + " </div>" +
+            "<div>Word count: " + readability.words.toFixed(2) + "</div>" +
+            "<div>Sentence count: " + readability.sentences.toFixed(2) + "</div>" +
+            "<div>Syllables per word: " + (readability.syllables / readability.words).toFixed(2) + "</div>";
     });
 });
