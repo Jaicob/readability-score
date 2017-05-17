@@ -1,0 +1,77 @@
+body {
+	font-family: Helvetica;
+	padding: 10px;
+	min-width: 470px;
+	background: #243541;
+	color: #FFFFFF;
+}
+
+label {
+	font-family: Helvetica-Light;
+	font-size: 18px;
+	color: #D4D4D4;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	margin-right: 15px;
+}
+
+.margin-top-md {
+	margin-top:15px;
+}
+
+.title {
+	font-family: Helvetica-Light;
+	font-size: 22px;
+	color: #D4D4D4;
+	border-bottom: 1px solid #FFFFFF;
+	width: 100%;
+	padding-bottom:10px;
+}
+
+.meter {
+	background-image: linear-gradient(-90deg, #6FDA85 0%, #DD4941 99%);
+	width: 100%;
+	height: 25px;
+	margin: 10px 0;
+	display: flex;
+}
+
+#meter-indicator {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+    padding-top: 2px;
+}
+
+.meter-triangle {
+	align-self: flex-start;
+	margin: 0 auto;
+}
+
+.meter-score {
+	align-self: flex-end;
+	font-size: 12px;
+	margin: 0 auto 2px auto;
+}
+
+.primary-result {
+	font-size: 34px;
+}
+
+.secondary-result {
+	font-family: Helvetica-Light;
+	font-size: 16px;
+}

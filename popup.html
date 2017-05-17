@@ -1,24 +1,78 @@
 <!doctype html>
 <html>
     <head>
-        <title>Getting Started Extension's Popup</title>
-        <style>
-        body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-        }
-        #status {
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-        }
-        </style>
-        
+        <title>ReadabilityScore Results</title>
         <script src="popup.js"></script>
+        <link rel="stylesheet" href="popup.css">
     </head>
-    <body style="min-width: 400px;">
-        <h2>Readability Report</h2>
-        <div id="output"></div>
+
+    <body class="rectangle">
+        <div class="container">
+            
+            <!-- TITLE -->
+            <div class="row">
+                <div class="title">Readability Report</div>
+            </div>
+
+            <!-- METER -->
+            <div class="row margin-top-md">
+                <div class="meter">
+                    <div id="meter-indicator">
+                        <div class="meter-score"><span id="secondary-result-content-0"></span></div>
+                        <svg class="meter-triangle"
+                            width="31px"
+                            height="8px"
+                            viewBox="0 0 31 8"
+                            version="1.1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+                            <desc>Created with Sketch.</desc>
+                            <defs></defs>
+                            <g id="Page-1"
+                                stroke="none"
+                                stroke-width="1"
+                                fill="none"
+                                fill-rule="evenodd">
+                                <polygon id="Triangle"
+                                    fill="#FFFFFF"
+                                    points="15.5 0 31 8 0 8"></polygon>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRIMARY RESULTS -->
+            <div class="row margin-top-md">
+                <div class="column">
+                    <label>Reading Level:</label>
+                    <div class="primary-result">
+                        <span id="primary-result-content"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECONDARY RESULTS -->
+            <div class="row margin-top-md">
+                <div class="column">
+                    <div class="secondary-result-container-1">
+                        <label>Words per Sentence:</label>
+                        <div class="secondary-result">
+                            <div id="secondary-result-content-1"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="secondary-result-container-2">
+                        <label>Syllables per Word:</label>
+                        <div class="secondary-result">
+                            <div id="secondary-result-content-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
