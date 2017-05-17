@@ -39,9 +39,16 @@ function calculateReadability(text) {
     let wordCount = words.length;
     let sentenceCount = calculateSentenceCount(text);
     let syllableCount = calculateSyllableCount(words);
+    let score = (FK_ONE - FK_TWO * (wordCount / sentenceCount)) - (FK_THREE * (syllableCount / wordCount));
+
+    if (sentenceCount < 1) {
+        return {
+            error: 'A full sentence needs to be selected.'
+        };
+    }
 
     return {
-        score: (FK_ONE - FK_TWO * (wordCount / sentenceCount)) - (FK_THREE * (syllableCount / wordCount)),
+        score: score,
         words: wordCount,
         sentences: sentenceCount,
         syllables: syllableCount
@@ -107,8 +114,14 @@ function getIndicatorPosition(score) {
 
 document.addEventListener('DOMContentLoaded', function() {
     getSelectedText(function(selectedText) {
-        var readability = calculateReadability(selectedText),
-            score = readability.score.toFixed(2),
+        var readability = calculateReadability(selectedText);
+
+        if (readability.error) {
+            document.getElementById("error-message").innerHTML = 'No Result: ' + readability.error;
+            return;
+        }
+
+        var score = readability.score.toFixed(2),
             gradeLevel = convertScoreToGrade(readability.score),
             wordsPerSentence = (readability.words/readability.sentences).toFixed(2),
             syllablesPerWord = (readability.syllables / readability.words).toFixed(2);

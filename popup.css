@@ -85,3 +85,8 @@ label {
 	border-radius: 2px;
 	width: 130px;
 }
+
+.error-result {
+	color: #DD4941;
+	font-size: 30px;
+}
