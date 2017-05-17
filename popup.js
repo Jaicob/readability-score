@@ -100,7 +100,7 @@ function convertScoreToGrade(score) {
 function getIndicatorPosition(score) {
     var position = Math.floor(score);
     if (position <= 0) { position = 0 }
-    if (position > 90) { position = 92 }
+    if (position > 90) { position = 91 }
 
     return position;
 }
