@@ -126,6 +126,9 @@ document.addEventListener('DOMContentLoaded', function() {
             wordsPerSentence = (readability.words/readability.sentences).toFixed(2),
             syllablesPerWord = (readability.syllables / readability.words).toFixed(2);
 
+        // The best words/sentence can be is one
+        // The best syllables per word can be is also one
+
         document.getElementById("meter-indicator").style.left = getIndicatorPosition(score) + '%';
         document.getElementById("primary-result-content").innerHTML = gradeLevel;
         document.getElementById("secondary-result-content-0").innerHTML = score;

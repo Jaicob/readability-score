@@ -1,7 +1,7 @@
 {
     "manifest_version":2,
     "name":"Readability Score",
-    "description":"Given a body of text receive a score on how readable that text is.",
+    "description":"Given a body of text receive a score on how readable that text is flesch-kincaid readability index.",
     "version": "1.0",
     "browser_action": {
         "default_icon": "icon.png",
